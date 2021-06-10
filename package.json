@@ -6,7 +6,7 @@
   "homepage": "https://AnArzhanykh.github.io/thirteenth-lesson_image-finder",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /thirteenth-lesson_image-finder --no-content-hash",
+    "build": "parcel build src/*.html --public-url /thirteenth-lesson_image-finder",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
 },
@@ -32,4 +32,6 @@
 },
 "dependencies": {
     "gh-pages": "^1.1.0",
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "4.0.8"
+    }
+}
