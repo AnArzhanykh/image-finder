@@ -4,8 +4,9 @@ const page = 1;
 
 async function takeImag(curentvalue){
     const token = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${curentvalue}&page=${page}&per_page=${per_page}&key=${key}`;
-    console.log(token);
-    return token
+    return fetch(token).then(response => response.json()).then(json=>json.hits).catch(e=>console.log('this is error from fatch ', e.message));
+
+
 }
 
 export default takeImag;

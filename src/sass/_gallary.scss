@@ -1,0 +1,22 @@
+.gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+body {
+    background-color: silver;
+}
+
+li {
+    margin: 10px;
+    list-style-type: none;
+    background-color: white;
+    img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+}
