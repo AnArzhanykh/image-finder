@@ -1,21 +1,14 @@
-import takeImag from './apiService';
-import Card from '../template/image-card';
-import listImage from '../template/list-images';
-
-const galleryRef = document.querySelector('.gallery');
+import Service from './apiService';
+import listImages from '../template/list-images';
+import {galleryRef} from '../index'
 
 
-function render (curentValue) {
-
-    takeImag(curentValue).then(arr =>{
-        renderCard(arr, listImage);
-    });
+function render (curentValue) { 
+    Service.takeImag(curentValue).then(renderCard)
 }
 
-
-
-function renderCard(arr, template){
-    const markup = template(arr);
+function renderCard(arr){
+    const markup = listImages(arr);
     galleryRef.insertAdjacentHTML('beforeend', markup);
 }
 
