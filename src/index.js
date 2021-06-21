@@ -2,35 +2,51 @@ import './sass/main.scss';
 var debounce = require('lodash.debounce');
 import render from './js/render';
 import Service from './js/apiService';
+import ref from './js/ref'
+import alert from './js/alert'
+import openModalImage from './js/openModalImage'
 
-const inputSearchRef = document.querySelector('.search-form > input');
-const BtnRef = document.querySelector('[data-action = load-more]');
-const searchForm = document.querySelector('.search-form');
-const galleryRef = document.querySelector('.gallery');
+const basicLightbox = require('basiclightbox')
+const instance = basicLightbox.create(`
+	<h1>Dynamic Content</h1>
+	<p>You can set the content of the lightbox with JS.</p>
+`)
 
 
 const debounceSearching = debounce(searching, 1000);
-const debouncehandleButtonClick = debounce(handleButtonClick, 200);
+const debounceHandleButtonClick = debounce(handleButtonClick, 200);
 
-inputSearchRef.addEventListener('input', debounceSearching);
+
+ref.inputSearchRef.addEventListener('input', debounceSearching);
+
+ref.BtnRef.addEventListener('click', render);
+ref.BtnRef.addEventListener('click', debounceHandleButtonClick);
+ref.galleryRef.addEventListener('click', openModalImage);
 
 async function searching(e){
-    galleryRef.innerHTML = '';
+    ref.galleryRef.innerHTML = '';
     Service.resetPage();
     Service.query = e.target.value;
+    if(!Service.query){
+      alert.emptyString();
+      return
+    }
     render();
-    searchForm.reset()
+    ref.searchForm.reset()
+    handleButtonClick()
 }
 
 
-BtnRef.addEventListener('click', render);
-BtnRef.addEventListener('click', debouncehandleButtonClick);
-
 function handleButtonClick() {
-    const elem =galleryRef.lastElementChild;
+    const elem = ref.galleryRef.lastElementChild;
+    if(!elem){
+      return
+    }
     console.log(elem);
     elem.scrollIntoView({block: "center", behavior: "smooth"});
 }
 
 
-export {galleryRef};
+ 
+
+

@@ -9,18 +9,18 @@
     "build": "parcel build src/*.html --public-url /thirteenth-lesson_image-finder",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-},
-"repository": {
+  },
+  "repository": {
     "type": "git",
     "url": "git+https:/AnArzhanykh.github.io/thirteenth-lesson_image-finder.git"
-},
-"keywords": [],
-"author": "Andrey Arzhanykh <anarzhanykh@gmail.com>",
-"license": "ISC",
-"bugs": {
+  },
+  "keywords": [],
+  "author": "Andrey Arzhanykh <anarzhanykh@gmail.com>",
+  "license": "ISC",
+  "bugs": {
     "url": "https://AnArzhanykh.github.io/thirteenth-lesson_image-finder/issues"
-},
-"devDependencies": {
+  },
+  "devDependencies": {
     "@pnotify/bootstrap4": "^5.2.0",
     "parcel-bundler": "^1.10.3",
     "parcel-plugin-handlebars-precompile": "^1.0.0",
@@ -29,9 +29,10 @@
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8",
     "shx": "^0.3.2"
-},
-"dependencies": {
+  },
+  "dependencies": {
+    "basiclightbox": "^5.0.4",
     "gh-pages": "^1.1.0",
     "lodash.debounce": "4.0.8"
-    }
+  }
 }
