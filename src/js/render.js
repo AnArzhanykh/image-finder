@@ -1,16 +1,16 @@
 import Service from './apiService';
 import listImages from '../template/list-images';
 import ref from './ref';
-import handler from './handlers'
+import isBtnVisible from './handlers'
 
 
 function render (curentValue) { 
-    Service.takeImag(curentValue).then(renderCard);
+    Service.takeImag(curentValue).then(renderListCards);
 }
 
-function renderCard(arr){
-
-    handler(arr);
+function renderListCards(arr){
+    // Service.length(arr)
+    isBtnVisible(arr);
     const markup = listImages(arr);
     ref.galleryRef.insertAdjacentHTML('beforeend', markup);
 

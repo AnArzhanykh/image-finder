@@ -2,19 +2,16 @@ import './sass/main.scss';
 var debounce = require('lodash.debounce');
 import render from './js/render';
 import Service from './js/apiService';
-import ref from './js/ref'
-import alert from './js/alert'
-import openModalImage from './js/openModalImage'
+import ref from './js/ref';
+import alert from './js/alert';
+import openModalImage from './js/openModalImage';
+
 
 const basicLightbox = require('basiclightbox')
-const instance = basicLightbox.create(`
-	<h1>Dynamic Content</h1>
-	<p>You can set the content of the lightbox with JS.</p>
-`)
-
 
 const debounceSearching = debounce(searching, 1000);
-const debounceHandleButtonClick = debounce(handleButtonClick, 200);
+const debounceHandleButtonClick = debounce(scroll, 200);
+
 
 
 ref.inputSearchRef.addEventListener('input', debounceSearching);
@@ -28,18 +25,21 @@ ref.galleryRef.addEventListener('click', openModalImage);
 async function searching(e){
     ref.galleryRef.innerHTML = '';
     Service.resetPage();
-    Service.query = e.target.value;
-    if(!Service.query){
+
+    if(!e.target.value){
       alert.emptyString();
       return
     }
-    render();
+
+    Service.query = e.target.value;
+
+    render(Service.query);
     ref.searchForm.reset()
-    handleButtonClick()
+    scroll()
 }
 
 
-function handleButtonClick() {
+function scroll() {
     const elem = ref.galleryRef.lastElementChild;
     if(!elem){
       return
