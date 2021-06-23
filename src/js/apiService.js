@@ -7,12 +7,11 @@ export default {
     searchQuery : '',
     arrLength: null,
     takeImag(){
-    const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=${this.per_page}&key=${token}`;
-    return fetch(url).then(response => response.json()).then(json=>{
-        this.incrimentPage(); 
-        console.log(this.arrLength);
-        return json.hits;
-        }).catch(e=>console.log('this is error from fatch ', e.message));
+        const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=${this.per_page}&key=${token}`;
+        return fetch(url).then(response => response.json()).then(json=>{
+            this.incrimentPage(); 
+            return json.hits;
+            }).catch(e=>console.log('this is error from fatch ', e.message));
     },
     resetPage(){
         this.page = 1;
