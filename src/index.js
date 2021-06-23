@@ -42,11 +42,8 @@ function handleButtonClick() {
     if(!elem){
       return
     }
-    console.log(elem);
     elem.scrollIntoView({block: "center", behavior: "smooth"});
 }
 
-
- 
 
 

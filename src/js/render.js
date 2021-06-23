@@ -8,15 +8,12 @@ function render (curentValue) {
 }
 
 function renderCard(arr){
-    if(arr.length < 12){
-        ref.BtnRef.classList.add('hidden');
-    };
-    if(arr.length >= 12){
-        ref.BtnRef.classList.remove('hidden');
-    };   
+
+    ref.visibleBtn(arr);
     const markup = listImages(arr);
     ref.galleryRef.insertAdjacentHTML('beforeend', markup);
 
 }
+
 
 export default render
