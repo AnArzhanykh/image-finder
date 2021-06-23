@@ -23,6 +23,8 @@ ref.BtnRef.addEventListener('click', render);
 ref.BtnRef.addEventListener('click', debounceHandleButtonClick);
 ref.galleryRef.addEventListener('click', openModalImage);
 
+
+
 async function searching(e){
     ref.galleryRef.innerHTML = '';
     Service.resetPage();
