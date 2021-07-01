@@ -28,11 +28,7 @@ function observ() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         console.log('entry', entry);
-
-        
           render()
-        
-        
       }
     });
   };
