@@ -1,4 +1,3 @@
-// const basicLightbox = require('basiclightbox');
 import * as basicLightbox from 'basiclightbox'
 
 export default function openModalImage(e){

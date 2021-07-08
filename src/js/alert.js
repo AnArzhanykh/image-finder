@@ -5,6 +5,7 @@ import"@pnotify/core/dist/BrightTheme.css";
 const messageAlert = {
     emptyText: 'You did not write a simbol',
     imageOver: 'The image is over', 
+    notFind: 'Images not finded, try again',
     emptyString(){
         const myError = error({
             text: this.emptyText,
@@ -14,7 +15,12 @@ const messageAlert = {
         const mySucc = success({
             text: this.imageOver,
         })
-    },        
+    },
+    imageNotFind(){
+        const myNotFind = notice({
+            text: this.notFind,
+        })
+    }        
 }
 
 export default messageAlert;
