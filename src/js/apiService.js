@@ -1,6 +1,5 @@
 const token = '21709969-2aaf655592c1caf292dc08cd8';
 
-
 export default {
     per_page : 12,
     page : 1,
@@ -31,11 +30,4 @@ export default {
     set length(arr){
         this.arrLength = arr.length;
     },
-
 } 
-
-
-
-
-
-
